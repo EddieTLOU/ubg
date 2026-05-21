@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetTube Games | Unblocked</title>
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --card-bg: #1a1a1a;
+            --accent-color: #ff3333;
+            --accent-glow: #ff0000;
+            --text-main: #ffffff;
+            --text-muted: #cccccc;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            max-width: 1200px;
+            padding: 40px 20px 20px 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-shadow: 0 0 10px var(--accent-glow), 0 0 20px var(--accent-glow);
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .search-container {
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 40px;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1rem;
+            background-color: var(--card-bg);
+            border: 2px solid #333;
+            border-radius: 30px;
+            color: var(--text-main);
+            outline: none;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .search-container input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        main {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px 40px 20px;
+            box-sizing: border-box;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .game-card {
+            background-color: var(--card-bg);
+            border: 1px solid #222;
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .game-thumbnail {
+            width: 100%;
+            height: 150px;
+            background-color: #252525;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #444;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .game-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .game-info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .game-title {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>NetTube Games</h1>
+        <p class="subtitle">Fast, clean, unblocked arcade action.</p>
+        
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search games..." onkeyup="filterGames()">
+        </div>
+    </header>
+
+    <main>
+        <div class="games-grid" id="gamesGrid">
+            
+            <!-- GAME 1: 2048 -->
+            <a href="games/2048/index.html" class="game-card">
+                <div class="game-thumbnail">
+                    <!-- You can add an <img> tag here later for artwork -->
+                    <span style="color: var(--accent-color); font-size: 2rem;">2048</span>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">2048</h3>
+                </div>
+            </a>
+
+            <!-- GAME 2: Hextris -->
+            <a href="games/hextris/index.html" class="game-card">
+                <div class="game-thumbnail">
+                    <span style="color: var(--accent-color); font-size: 2rem;">HEX</span>
+                </div>
+                <div class="game-info">
+                    <h3 class="game-title">Hextris</h3>
+                </div>
+            </a>
+
+            <!-- Future games go right here! -->
+
+        </div>
+    </main>
+
+    <script>
+        function filterGames() {
+            const input = document.getElementById('searchBar').value.toLowerCase();
+            const grid = document.getElementById('gamesGrid');
+            const cards = grid.getElementsByClassName('game-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByClassName('game-title')[0].innerText;
+                if (title.toLowerCase().indexOf(input) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
