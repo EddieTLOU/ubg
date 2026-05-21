@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NetTube Games | Unblocked</title>
+    <title>NetTube Games | Unblocked Hub</title>
     <style>
         :root {
             --bg-color: #0d0d0d;
-            --card-bg: #1a1a1a;
+            --card-bg: #161616;
             --accent-color: #ff3333;
             --accent-glow: #ff0000;
             --text-main: #ffffff;
-            --text-muted: #cccccc;
+            --text-muted: #aaaaaa;
         }
 
         body {
@@ -28,7 +28,7 @@
         header {
             width: 100%;
             max-width: 1200px;
-            padding: 40px 20px 20px 20px;
+            padding: 50px 20px 20px 20px;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
@@ -37,18 +37,19 @@
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin: 0 0 10px 0;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             color: var(--text-main);
-            text-shadow: 0 0 10px var(--accent-glow), 0 0 20px var(--accent-glow);
+            text-shadow: 0 0 12px var(--accent-glow), 0 0 25px var(--accent-glow);
         }
 
         p.subtitle {
             color: var(--text-muted);
             font-size: 1.1rem;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            letter-spacing: 1px;
         }
 
         .search-container {
@@ -59,10 +60,10 @@
 
         .search-container input {
             width: 100%;
-            padding: 15px 20px;
+            padding: 15px 25px;
             font-size: 1rem;
             background-color: var(--card-bg);
-            border: 2px solid #333;
+            border: 2px solid #252525;
             border-radius: 30px;
             color: var(--text-main);
             outline: none;
@@ -78,62 +79,63 @@
         main {
             width: 100%;
             max-width: 1200px;
-            padding: 0 20px 40px 20px;
+            padding: 0 20px 60px 20px;
             box-sizing: border-box;
         }
 
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 30px;
         }
 
         .game-card {
             background-color: var(--card-bg);
             border: 1px solid #222;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
             text-decoration: none;
             color: var(--text-main);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.6);
         }
 
         .game-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
             border-color: var(--accent-color);
-            box-shadow: 0 0 20px var(--accent-glow);
+            box-shadow: 0 0 25px var(--accent-glow);
         }
 
         .game-thumbnail {
             width: 100%;
-            height: 150px;
-            background-color: #252525;
+            height: 160px;
+            background-color: #1f1f1f;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: #444;
             overflow: hidden;
             position: relative;
+            border-bottom: 1px solid #222;
         }
 
-        .game-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        /* Styling for the emoji/text fallback icon */
+        .game-icon {
+            font-size: 3rem;
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.3));
         }
 
         .game-info {
-            padding: 15px;
+            padding: 20px;
             text-align: center;
+            background: linear-gradient(to top, #0f0f0f, var(--card-bg));
         }
 
         .game-title {
             margin: 0;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 600;
             letter-spacing: 0.5px;
         }
@@ -146,40 +148,30 @@
         <p class="subtitle">Fast, clean, unblocked arcade action.</p>
         
         <div class="search-container">
-            <input type="text" id="searchBar" placeholder="Search games..." onkeyup="filterGames()">
+            <input type="text" id="searchBar" placeholder="Search your games..." onkeyup="filterGames()">
         </div>
     </header>
 
     <main>
         <div class="games-grid" id="gamesGrid">
             
-            <!-- GAME 1: 2048 -->
-            <a href="games/2048/index.html" class="game-card">
+            <!-- GAME 1: BASKETBALL STARS -->
+            <a href="games/basketball-stars/index.html" class="game-card">
                 <div class="game-thumbnail">
-                    <!-- You can add an <img> tag here later for artwork -->
-                    <span style="color: var(--accent-color); font-size: 2rem;">2048</span>
+                    <span class="game-icon">🏀</span>
                 </div>
                 <div class="game-info">
-                    <h3 class="game-title">2048</h3>
+                    <h3 class="game-title">Basketball Stars</h3>
                 </div>
             </a>
 
-            <!-- GAME 2: Hextris -->
-            <a href="games/hextris/index.html" class="game-card">
-                <div class="game-thumbnail">
-                    <span style="color: var(--accent-color); font-size: 2rem;">HEX</span>
-                </div>
-                <div class="game-info">
-                    <h3 class="game-title">Hextris</h3>
-                </div>
-            </a>
-
-            <!-- Future games go right here! -->
+            <!-- You can easily add more game cards right below this line in the future! -->
 
         </div>
     </main>
 
     <script>
+        // Smooth local search functionality
         function filterGames() {
             const input = document.getElementById('searchBar').value.toLowerCase();
             const grid = document.getElementById('gamesGrid');
